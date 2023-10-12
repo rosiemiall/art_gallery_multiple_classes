@@ -22,7 +22,7 @@ public class Gallery {
 //        this.till += artwork.getPrice();
     }
 
-    public int stock_take(Gallery gallery){
+    public int stock_take(){
         int stockValue = 0;
         for(Artwork artwork : this.stock){
             stockValue += artwork.getPrice();
@@ -31,7 +31,7 @@ public class Gallery {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -39,7 +39,7 @@ public class Gallery {
     }
 
     public int getTill() {
-        return till;
+        return this.till;
     }
 
     public void setTill(int till) {
@@ -47,7 +47,7 @@ public class Gallery {
     }
 
     public ArrayList<Artwork> getStock() {
-        return stock;
+        return this.stock;
     }
 
     public void setStock(ArrayList<Artwork> stock) {
