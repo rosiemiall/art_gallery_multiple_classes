@@ -6,7 +6,13 @@ public class Customer {
     private int wallet;
     private ArrayList<Artwork> artCollection;
 
-    private void buyArt(Artwork artwork){
+    public Customer(String name, int wallet){
+        this.name = name;
+        this.wallet = wallet;
+        this.artCollection = new ArrayList<>();
+    }
+
+    public void buyArt(Artwork artwork){
         artCollection.add(artwork);
         wallet -= artwork.getPrice();
     }
