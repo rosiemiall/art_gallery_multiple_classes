@@ -22,6 +22,14 @@ public class Gallery {
 //        this.till += artwork.getPrice();
     }
 
+    public int stock_take(Gallery gallery){
+        int stockValue = 0;
+        for(Artwork artwork : this.stock){
+            stockValue += artwork.getPrice();
+        }
+        return stockValue;
+    }
+
     public String getName() {
         return name;
     }
