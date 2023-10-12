@@ -9,13 +9,13 @@ public class Artwork {
         this.artist = artist;
         this.price = price;
     }
-    
+
     public String getTitle(){
         return this.title;
     }
 
-    public String getArtist(){
-        return this.artist.getName();
+    public Artist getArtist(){
+        return this.artist;
     }
 
     public int getPrice(){

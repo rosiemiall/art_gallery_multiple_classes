@@ -17,6 +17,7 @@ public class ArtistTest {
     public void canGetName(){
         assertThat(vanGogh.getName()).isEqualTo("Van Gogh");
     }
+    
     @Test
     public void canSetName(){
         vanGogh.setName("Vincent Van Gogh");
