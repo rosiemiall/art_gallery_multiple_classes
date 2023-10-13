@@ -22,7 +22,7 @@ public class GalleryTest {
         painting1 = new Artwork("Painting 1", vanGogh, 100);
         painting2 = new Artwork("Painting 2", vanGogh, 50);
         painting3 = new Artwork("Painting 3", vanGogh, 10);
-        customer = new Customer("John",200);
+        customer = new Customer("John",200, gallery);
         gallery = new Gallery("Art Gallery");
     }
 
@@ -44,7 +44,7 @@ public class GalleryTest {
     }
 
     @Test
-    public void canRemoveArtowork(){
+    public void canRemoveArtwork(){
         stock = new ArrayList<>();
         stock.add(painting1);
         gallery.addArtwork(painting1);
@@ -60,4 +60,5 @@ public class GalleryTest {
         gallery.addArtwork(painting3);
         assertThat(gallery.stock_take()).isEqualTo(160);
     }
+
 }

@@ -15,13 +15,15 @@ public class CustomerTest{
     ArrayList artCollection;
     ArrayList artCollectionNew;
     Customer customer;
+    Gallery gallery;
 
     @BeforeEach
     public void SetUp(){
+        gallery = new Gallery("Art Gallery");
         vanGogh = new Artist("Van Gogh");
         painting1 = new Artwork("Painting 1", vanGogh, 100);
         painting2 = new Artwork("Painting 2", vanGogh, 50);
-        customer = new Customer("John",200);
+        customer = new Customer("John",200, gallery);
     }
 
     @Test
@@ -56,7 +58,25 @@ public class CustomerTest{
         artCollection = new ArrayList<>();
         artCollection.add(painting1);
         customer.setArtCollection(artCollection);
-        customer.buyArt(painting2);
-        assertThat(customer.getWallet()).isEqualTo(150);
+        customer.buyArt(painting1);
+        assertThat(customer.getWallet()).isEqualTo(100);
+    }
+    @Test
+    public void canCheckStockAfterBuying(){
+        artCollection = new ArrayList<>();
+        artCollectionNew = new ArrayList<>();
+        artCollection.add(painting1);
+        customer.setArtCollection(artCollection);
+        customer.buyArt(painting1);
+        assertThat(gallery.getStock()).isEqualTo(artCollectionNew);
+    }
+    @Test
+    public void canCheckTillAfterBuying(){
+        artCollection = new ArrayList<>();
+        artCollectionNew = new ArrayList<>();
+        artCollection.add(painting1);
+        customer.setArtCollection(artCollection);
+        customer.buyArt(painting1);
+        assertThat(gallery.getTill()).isEqualTo(100);
     }
 }

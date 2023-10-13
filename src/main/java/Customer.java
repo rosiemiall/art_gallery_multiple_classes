@@ -5,16 +5,21 @@ public class Customer {
     private String name;
     private int wallet;
     private ArrayList<Artwork> artCollection;
+    private Gallery gallery;
 
-    public Customer(String name, int wallet){
+    public Customer(String name, int wallet, Gallery gallery){
         this.name = name;
         this.wallet = wallet;
         this.artCollection = new ArrayList<>();
+        this.gallery = gallery;
     }
 
     public void buyArt(Artwork artwork){
-        artCollection.add(artwork);
-        wallet -= artwork.getPrice();
+        if (artwork.getPrice() < this.wallet) {
+            this.artCollection.add(artwork);
+            this.wallet -= artwork.getPrice();
+            gallery.removeArtwork(artwork);
+        }
     }
 
     public String getName() {
